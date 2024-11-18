@@ -1,0 +1,15 @@
+RESTful API - JSON
+
+GET /countries - pass the JSON --- Done
+GET /countries - (Render an HTML File) List all the countries  ----- Done
+GET /countries/india - Get the info of the ID india
+Data - Chat gpt json file
+
+POST /country - Creates a new country
+
+PATCH /country/india - Edit India's information
+
+DELETE /countries/india - Deletes the Country with name ID india
+
+
+Complete Task

@@ -1,0 +1,14 @@
+{
+  "name": "countryinfo",
+  "version": "1.0.0",
+  "description": "A Public API to let people fetch country info for their applications.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
