@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const countries = require('./countrymockdata.json').countries; // Ensure you're accessing the 'countries' array from the mock data
 
 const port = 8000;
+
+// Use CORS middleware
+app.use(cors());
 
 // Middleware to handle JSON requests
 app.use(express.json());
