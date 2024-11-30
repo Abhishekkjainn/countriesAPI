@@ -15,20 +15,36 @@ app.use(express.json());
 
 // Endpoint to get all countries
 app.get('/countries', (req, res) => {
-  // If countries array is empty, return an appropriate message
+  // Check if countries array is empty
   if (countries.length === 0) {
-    return res.status(404).json({ message: 'No country data available' });
+    return res.status(404).json({
+      message: 'No country data available',
+      error: true,
+      statusCode: 404,
+      details:
+        'The countries data is either not loaded or unavailable at the moment. Please check the data source or try again later.',
+    });
   }
-  return res.json(countries);
+  return res.status(200).json({
+    message: 'Successfully retrieved all countries',
+    data: countries,
+    statusCode: 200,
+  });
 });
 
 // Endpoint to get country details by name
 app.get('/countries/:countryname', (req, res) => {
   const countryname = req.params.countryname.trim();
 
-  // Check if countryname is provided
+  // Validate if countryname is provided
   if (!countryname) {
-    return res.status(400).json({ message: 'Country name is required' });
+    return res.status(400).json({
+      message: 'Country name is required',
+      error: true,
+      statusCode: 400,
+      details:
+        'The country name must be specified in the URL as part of the request. Please provide a valid country name.',
+    });
   }
 
   // Find the country matching the countryname (case insensitive)
@@ -38,17 +54,30 @@ app.get('/countries/:countryname', (req, res) => {
 
   // If no country is found, return 404 error
   if (!country) {
-    return res
-      .status(404)
-      .json({ message: `Country with name ${countryname} not found` });
+    return res.status(404).json({
+      message: `Country with name '${countryname}' not found`,
+      error: true,
+      statusCode: 404,
+      details: `No country data was found for '${countryname}'. Please check the country name for any typos or refer to the list of available countries.`,
+    });
   }
 
-  return res.json(country);
+  return res.status(200).json({
+    message: `Successfully retrieved data for '${countryname}'`,
+    data: country,
+    statusCode: 200,
+  });
 });
 
 // Fallback route for undefined endpoints
 app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
+  return res.status(404).json({
+    message: 'Route not found',
+    error: true,
+    statusCode: 404,
+    details:
+      'The endpoint you are trying to access does not exist. Please check the URL and try again.',
+  });
 });
 
 app.listen(port, () => console.log(`Server Started at Port ${port}`));
