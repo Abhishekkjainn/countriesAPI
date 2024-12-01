@@ -1,3 +1,7 @@
+Here's the updated version of the **Countries API Documentation** with your social media and contact information included:
+
+---
+
 # **Countries API Documentation**
 
 ## Overview
@@ -179,6 +183,15 @@ If you would like to contribute to this API, follow these steps:
 
 ---
 
+## **Social Links and Contact**
+
+- **Instagram**: [@abhishekk.jainnn](https://www.instagram.com/abhishekk.jainnn/)
+- **LinkedIn**: [Abhishek Jain](https://www.linkedin.com/in/abhishekk-jainn/)
+- **Portfolio**: [Abhishek's Portfolio](https://abhishekjainn.vercel.app)
+- **Email**: [jainabhishek1904@gmail.com](mailto:jainabhishek1904@gmail.com)
+
+---
+
 ## **Notes**
 
 - The API currently relies on a static JSON file (`countrymockdata.json`) to fetch country data. Ensure that the data file is properly updated with accurate and up-to-date country information.
@@ -237,3 +250,5 @@ GET /countries/xyz
 ## **Conclusion**
 
 This API is an easy-to-use resource for accessing comprehensive information about countries. Whether you want to get details for a single country or all countries, this API can provide the necessary data with proper error handling and clear messages. If you encounter any issues, please check the error details in the response or contribute improvements via the GitHub repository.
+
+---
